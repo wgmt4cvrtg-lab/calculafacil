@@ -1,0 +1,53 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conversor Celsius, Fahrenheit y Kelvin | CalculaFácil</title>
+<meta name="description" content="Convierte temperaturas entre grados Celsius, Fahrenheit y Kelvin.">
+<link rel="canonical" href="https://wgmt4cvrtg-lab.github.io/calculafacil/temperatura.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header"><div class="container nav">
+<a class="logo" href="index.html">✦ Calcula<span>Fácil</span></a>
+<button id="menu" class="secondary menu" aria-expanded="false" aria-controls="navlinks">☰ Menú</button>
+<nav id="navlinks" class="navlinks">
+<a href="index.html">Inicio</a><a href="index.html#herramientas">Calculadoras</a>
+<a href="sobre-nosotros.html">Sobre nosotros</a><a href="contacto.html">Contacto</a>
+<button id="theme" class="secondary" type="button">☾</button>
+</nav></div></header>
+<main class="container">
+<p class="crumb"><a href="index.html">Inicio</a> / Temperatura</p>
+<section class="section article">
+<h1>Conversor de temperatura</h1>
+<p class="lead">Convierte temperaturas entre Celsius, Fahrenheit y Kelvin.</p>
+<div class="panel">
+<form id="calculator" data-tool="temperatura">
+<div class="field"><label for="a">Temperatura</label><input id="a" type="number" step="any" value="25" required></div>
+<div class="formgrid">
+<div class="field"><label for="from">Unidad de origen</label>
+<select id="from"><option value="C">Celsius (°C)</option><option value="F">Fahrenheit (°F)</option><option value="K">Kelvin (K)</option></select></div>
+<div class="field"><label for="to">Unidad de destino</label>
+<select id="to"><option value="F">Fahrenheit (°F)</option><option value="C">Celsius (°C)</option><option value="K">Kelvin (K)</option></select></div>
+</div>
+<button type="submit">Convertir temperatura</button>
+</form>
+<div id="result" class="result" role="status" aria-live="polite">Introduce los datos y pulsa Convertir.</div>
+</div>
+<h2>Fórmulas de conversión</h2>
+<p>De Celsius a Fahrenheit: °F = (°C × 9 ÷ 5) + 32.</p>
+<p>De Fahrenheit a Celsius: °C = (°F − 32) × 5 ÷ 9.</p>
+<p>De Celsius a Kelvin: K = °C + 273,15.</p>
+<h2>Ejemplo</h2>
+<p>25 °C equivalen a 77 °F y a 298,15 K.</p>
+<h2>Preguntas frecuentes</h2>
+<h3>¿Por qué Kelvin no lleva símbolo de grado?</h3>
+<p>Porque su unidad se denomina kelvin y su símbolo es K, sin el signo °.</p>
+<p><a href="longitud.html">Conversor de longitud →</a></p>
+</section></main>
+<footer class="footer"><div class="container"><strong>CalculaFácil</strong><div class="footerlinks"><a href="index.html">Inicio</a><a href="privacidad.html">Privacidad</a><a href="contacto.html">Contacto</a></div></div></footer>
+<script src="app.js" defer></script>
+</body>
+</html>

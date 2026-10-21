@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CalculaFácil: calculadoras online gratuitas de porcentajes, descuentos, IVA, regla de tres e interés compuesto.">
+  <title>CalculaFácil | Calculadoras gratis</title>
+  <style>
+    :root {
+      --azul: #2563eb;
+      --oscuro: #172554;
+      --fondo: #f3f6fc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--fondo);
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    header {
+      background: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px #00000010;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--azul);
+    }
+    nav a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: #334155;
+    }
+    .hero {
+      text-align: center;
+      padding: 65px 20px;
+      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+    }
+    h1 { color: var(--oscuro); font-size: 38px; }
+    h2 { color: var(--oscuro); }
+    .container {
+      max-width: 1050px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 4px 15px #0000000b;
+    }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      background: var(--azul);
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+    button:hover { background: #1d4ed8; }
+    .resultado {
+      margin-top: 15px;
+      padding: 12px;
+      background: #eff6ff;
+      border-radius: 8px;
+      font-weight: bold;
+      min-height: 48px;
+      overflow-wrap: anywhere;
+    }
+    .info {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      margin-top: 30px;
+    }
+    footer {
+      text-align: center;
+      background: #172554;
+      color: white;
+      padding: 25px;
+      margin-top: 40px;
+    }
+    footer a { color: white; }
+    @media (max-width: 600px) {
+      header { flex-direction: column; gap: 10px; }
+      nav a { margin: 0 7px; }
+      h1 { font-size: 29px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🧮 CalculaFácil</div>
+  <nav>
+    <a href="#calculadoras">Calculadoras</a>
+    <a href="#informacion">Información</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Calculadoras online gratuitas</h1>
+  <p>Resuelve tus cálculos diarios de forma rápida, sencilla y sin registrarte.</p>
+</section>
+
+<main class="container">
+  <section id="calculadoras">
+    <h2>Nuestras calculadoras</h2>
+    <div class="grid">
+
+      <article class="card">
+        <h2>📊 Porcentajes</h2>
+        <p>Calcula qué porcentaje representa una cantidad.</p>
+        <label for="p1">Cantidad</label>
+        <input type="number" id="p1" placeholder="Ejemplo: 20" step="any">
+        <label for="p2">Total</label>
+        <input type="number" id="p2" placeholder="Ejemplo: 200" step="any">
+        <button onclick="porcentaje()">Calcular</button>
+        <div class="resultado" id="rp" aria-live="polite">Introduce los datos.</div>
+      </article>
+
+      <article class="card">
+        <h2>🏷️ Descuentos</h2>
+        <p>Descubre el precio final después de aplicar un descuento.</p>
+        <label for="d1">Precio original (€)</label>
+        <input type="number" id="d1" placeholder="Ejemplo: 100" step="any">
+        <label for="d2">Descuento (%)</label>
+        <input type="number" id="d2" placeholder="Ejemplo: 20" step="any">
+        <button onclick="descuento()">Calcular</button>
+        <div class="resultado" id="rd" aria-live="polite">Introduce los datos.</div>
+      </article>
+
+      <article class="card">
+        <h2>🔢 Regla de tres</h2>
+        <p>Si A corresponde a B, calcula cuánto corresponde a C.</p>
+        <label for="r1">Valor A</label>
+        <input type="number" id="r1" placeholder="Ejemplo: 2" step="any">
+        <label for="r2">Valor B</label>
+        <input type="number" id="r2" placeholder="Ejemplo: 10" step="any">
+        <label for="r3">Valor C</label>
+        <input type="number" id="r3" placeholder="Ejemplo: 5" step="any">
+        <button onclick="reglaTres()">Calcular</button>
+        <div class="resultado" id="rr" aria-live="polite">Introduce los datos.</div>
+      </article>
+
+      <article class="card">
+        <h2>🧾 Calculadora de IVA</h2>
+        <p>Añade IVA a un precio sin impuestos.</p>
+        <label for="i1">Precio sin IVA (€)</label>
+        <input type="number" id="i1" placeholder="Ejemplo: 100" step="any">
+        <label for="i2">Tipo de IVA</label>
+        <select id="i2">
+          <option value="21">21%</option>
+          <option value="10">10%</option>
+          <option value="4">4%</option>
+          <option value="0">0%</option>
+        </select>
+        <button onclick="iva()">Calcular</button>
+        <div class="resultado" id="ri" aria-live="polite">Introduce los datos.</div>
+      </article>
+
+      <article class="card">
+        <h2>💰 Interés compuesto</h2>
+        <p>Estima el crecimiento de un capital con interés anual compuesto.</p>
+        <label for="c1">Capital inicial (€)</label>
+        <input type="number" id="c1" placeholder="Ejemplo: 1000" step="any">
+        <label for="c2">Interés anual (%)</label>
+        <input type="number" id="c2" placeholder="Ejemplo: 5" step="any">
+        <label for="c3">Número de años</label>
+        <input type="number" id="c3" placeholder="Ejemplo: 10" step="1">
+        <button onclick="interes()">Calcular</button>
+        <div class="resultado" id="rc" aria-live="polite">Introduce los datos.</div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="info" id="informacion">
+    <h2>¿Qué es CalculaFácil?</h2>
+    <p>CalculaFácil es una página de herramientas gratuitas para realizar operaciones matemáticas habituales sin instalar programas.</p>
+
+    <h3>¿Cómo utilizar las calculadoras?</h3>
+    <p>Selecciona la herramienta que necesites, introduce los valores y pulsa el botón Calcular. El resultado aparecerá inmediatamente.</p>
+
+    <h3>Ejemplo de cálculo de descuentos</h3>
+    <p>Si un producto cuesta 80 € y tiene un descuento del 25%, el descuento es de 20 € y el precio final es de 60 €.</p>
+
+    <h3>¿Son gratuitos los cálculos?</h3>
+    <p>Sí. Las herramientas son gratuitas y no requieren registro.</p>
+  </section>
+
+  <section class="info" id="contacto">
+    <h2>Contacto</h2>
+    <p>Esta sección está pendiente de completar con un medio de contacto real antes de publicar definitivamente la web.</p>
+  </section>
+</main>
+
+<footer>
+  <p>© <span id="anio"></span> CalculaFácil</p>
+  <p>Herramientas gratuitas para tus cálculos diarios.</p>
+</footer>
+
+<script>
+  const valor = id => {
+    const campo = document.getElementById(id);
+    if (campo.value.trim() === "") return NaN;
+    return Number(campo.value);
+  };
+
+  const mostrar = (id, texto) => {
+    document.getElementById(id).textContent = texto;
+  };
+
+  const numero = n => n.toLocaleString("es-ES", {
+    maximumFractionDigits: 2
+  });
+
+  const euros = n => n.toLocaleString("es-ES", {
+    style: "currency",
+    currency: "EUR"
+  });
+
+  function porcentaje() {
+    const a = valor("p1"), b = valor("p2");
+    mostrar("rp", !Number.isFinite(a) || !Number.isFinite(b) || b === 0
+      ? "Introduce valores válidos. El total no puede ser cero."
+      : "Resultado: " + numero(a / b * 100) + "%");
+  }
+
+  function descuento() {
+    const precio = valor("d1"), d = valor("d2");
+    mostrar("rd", !Number.isFinite(precio) || !Number.isFinite(d)
+      || precio < 0 || d < 0 || d > 100
+      ? "Introduce un precio válido y un descuento entre 0 y 100%."
+      : "Precio final: " + euros(precio * (1 - d / 100)));
+  }
+
+  function reglaTres() {
+    const a = valor("r1"), b = valor("r2"), c = valor("r3");
+    mostrar("rr", ![a,b,c].every(Number.isFinite) || a === 0
+      ? "Introduce valores válidos. A no puede ser cero."
+      : "Resultado: " + numero(b * c / a));
+  }
+
+  function iva() {
+    const precio = valor("i1"), tipo = valor("i2");
+    mostrar("ri", !Number.isFinite(precio) || precio < 0
+      ? "Introduce un precio válido."
+      : "Precio con IVA: " + euros(precio * (1 + tipo / 100)));
+  }
+
+  function interes() {
+    const capital = valor("c1");
+    const tasa = valor("c2");
+    const anios = valor("c3");
+    if (![capital,tasa,anios].every(Number.isFinite)
+        || capital < 0 || tasa < -100
+        || !Number.isInteger(anios) || anios < 0 || anios > 100) {
+      mostrar("rc", "Introduce valores válidos y años entre 0 y 100.");
+      return;
+    }
+    const resultado = capital * Math.pow(1 + tasa / 100, anios);
+    mostrar("rc", Number.isFinite(resultado)
+      ? "Capital final estimado: " + euros(resultado)
+      : "El resultado supera el límite de cálculo.");
+  }
+
+  document.getElementById("anio").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>

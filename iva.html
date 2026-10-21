@@ -1,0 +1,54 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de IVA: añadir y quitar | CalculaFácil</title>
+<meta name="description" content="Añade o extrae el IVA de un precio con una calculadora gratuita.">
+<link rel="canonical" href="https://wgmt4cvrtg-lab.github.io/calculafacil/iva.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header"><div class="container nav">
+<a class="logo" href="index.html">✦ Calcula<span>Fácil</span></a>
+<button id="menu" class="secondary menu" aria-expanded="false" aria-controls="navlinks">☰ Menú</button>
+<nav id="navlinks" class="navlinks">
+<a href="index.html">Inicio</a><a href="index.html#herramientas">Calculadoras</a>
+<a href="sobre-nosotros.html">Sobre nosotros</a><a href="contacto.html">Contacto</a>
+<button id="theme" class="secondary" type="button">☾</button>
+</nav></div></header>
+<main class="container">
+<p class="crumb"><a href="index.html">Inicio</a> / IVA</p>
+<section class="section article">
+<h1>Calculadora de IVA</h1>
+<p class="lead">Añade el IVA a un precio sin impuestos o extráelo de un importe que ya lo incluye.</p>
+<div class="panel">
+<form id="calculator" data-tool="iva">
+<div class="field">
+<label for="mode">Operación</label>
+<select id="mode"><option value="anadir">Añadir IVA</option><option value="extraer">Extraer IVA incluido</option></select>
+</div>
+<div class="formgrid">
+<div class="field"><label for="a">Importe (€)</label><input id="a" type="number" min="0" step="any" value="100" required></div>
+<div class="field"><label for="b">Tipo de IVA (%)</label><input id="b" type="number" min="0" max="100" step="any" value="21" required></div>
+</div>
+<button type="submit">Calcular IVA</button>
+</form>
+<div id="result" class="result" role="status" aria-live="polite">Introduce los datos y pulsa Calcular.</div>
+</div>
+<h2>Cómo añadir el IVA</h2>
+<p>Multiplica la base imponible por 1 más el tipo de IVA expresado como decimal. Por ejemplo, 100 € × 1,21 = 121 €.</p>
+<h2>Cómo quitar el IVA incluido</h2>
+<p>Divide el precio final entre 1 más el tipo de IVA expresado como decimal. Por ejemplo, 121 € ÷ 1,21 = 100 €.</p>
+<h2>Preguntas frecuentes</h2>
+<h3>¿Siempre se aplica el 21 %?</h3>
+<p>No. En España existen distintos tipos de IVA y operaciones con tratamientos específicos. Debes comprobar cuál corresponde a tu producto o servicio.</p>
+<h3>¿Sirve para preparar una factura?</h3>
+<p>Puede ayudarte con los importes, pero no sustituye la revisión de los requisitos fiscales de una factura.</p>
+<p><a href="descuentos.html">Calculadora de descuentos →</a></p>
+</section></main>
+<footer class="footer"><div class="container"><strong>CalculaFácil</strong><div class="footerlinks"><a href="index.html">Inicio</a><a href="privacidad.html">Privacidad</a><a href="contacto.html">Contacto</a></div></div></footer>
+<script src="app.js" defer></script>
+</body>
+</html>

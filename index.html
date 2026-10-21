@@ -2,296 +2,690 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="CalculaFácil: calculadoras online gratuitas de porcentajes, descuentos, IVA, regla de tres e interés compuesto.">
-  <title>CalculaFácil | Calculadoras gratis</title>
-  <style>
-    :root {
-      --azul: #2563eb;
-      --oscuro: #172554;
-      --fondo: #f3f6fc;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--fondo);
-      color: #1e293b;
-      line-height: 1.6;
-    }
-    header {
-      background: white;
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px #00000010;
-    }
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: var(--azul);
-    }
-    nav a {
-      margin-left: 15px;
-      text-decoration: none;
-      color: #334155;
-    }
-    .hero {
-      text-align: center;
-      padding: 65px 20px;
-      background: linear-gradient(135deg, #dbeafe, #eff6ff);
-    }
-    h1 { color: var(--oscuro); font-size: 38px; }
-    h2 { color: var(--oscuro); }
-    .container {
-      max-width: 1050px;
-      margin: auto;
-      padding: 30px 20px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
-    }
-    .card {
-      background: white;
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 4px 15px #0000000b;
-    }
-    input, select {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-    button {
-      background: var(--azul);
-      color: white;
-      border: none;
-      padding: 12px 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 10px;
-      font-size: 15px;
-    }
-    button:hover { background: #1d4ed8; }
-    .resultado {
-      margin-top: 15px;
-      padding: 12px;
-      background: #eff6ff;
-      border-radius: 8px;
-      font-weight: bold;
-      min-height: 48px;
-      overflow-wrap: anywhere;
-    }
-    .info {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      margin-top: 30px;
-    }
-    footer {
-      text-align: center;
-      background: #172554;
-      color: white;
-      padding: 25px;
-      margin-top: 40px;
-    }
-    footer a { color: white; }
-    @media (max-width: 600px) {
-      header { flex-direction: column; gap: 10px; }
-      nav a { margin: 0 7px; }
-      h1 { font-size: 29px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="CalculaFácil: calculadoras gratuitas de porcentajes, IVA, descuentos, fechas, interés compuesto y mucho más.">
+<meta name="theme-color" content="#2563eb">
+<title>CalculaFácil | Calculadoras online gratis</title>
+<style>
+:root{
+ --blue:#2563eb;--blue2:#1d4ed8;--ink:#14213d;
+ --muted:#64748b;--bg:#f5f7fc;--card:#fff;
+ --border:#e2e8f0;--soft:#eff6ff;
+ --shadow:0 8px 30px rgba(25,45,90,.06)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;
+ background:var(--bg);color:var(--ink);line-height:1.6}
+body.dark{
+ --ink:#f1f5f9;--muted:#a8b5c8;--bg:#0b1220;
+ --card:#162235;--border:#334155;--soft:#1e3352;
+ --shadow:0 8px 30px rgba(0,0,0,.15)
+}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+button{cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,
+select:focus-visible{outline:3px solid #60a5fa;outline-offset:3px}
+.container{width:min(1160px,92%);margin:auto}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);
+ position:sticky;top:0;z-index:10}
+.nav{min-height:76px;display:flex;align-items:center;
+ justify-content:space-between;gap:18px}
+.logo{font-size:23px;font-weight:850;letter-spacing:-1px;
+ display:flex;align-items:center;gap:10px}
+.logo-icon{background:var(--blue);color:white;padding:7px 12px;
+ border-radius:12px}
+.navlinks{display:flex;align-items:center;gap:23px}
+.navlinks a{font-size:14px;font-weight:600;color:var(--muted)}
+.navlinks a:hover{color:var(--blue)}
+.theme{border:1px solid var(--border);background:var(--card);
+ color:var(--ink);border-radius:11px;padding:9px 13px}
+.hero{background:linear-gradient(125deg,#dbeafe,#f8fbff 60%,#e0e7ff);
+ padding:85px 16px 78px;text-align:center}
+.dark .hero{background:linear-gradient(125deg,#142b50,#111827)}
+.pill{display:inline-block;background:#dbeafe;color:#1d4ed8;
+ padding:7px 16px;border-radius:30px;font-size:12px;font-weight:800;
+ letter-spacing:.4px}
+.hero h1{font-size:clamp(32px,5vw,58px);line-height:1.14;
+ max-width:850px;margin:23px auto;letter-spacing:-2px}
+.hero h1 span{color:var(--blue)}
+.hero p{max-width:620px;margin:0 auto 28px;color:var(--muted);
+ font-size:17px}
+.searchbox{max-width:600px;margin:auto;background:var(--card);
+ border:1px solid var(--border);border-radius:16px;padding:8px;
+ display:flex;align-items:center;box-shadow:var(--shadow)}
+.searchbox span{padding:0 13px;font-size:22px}
+.searchbox input{border:0;outline:0;background:transparent;
+ color:var(--ink);width:100%;padding:12px;font-size:16px}
+.hero-note{font-size:13px;margin-top:17px;color:var(--muted)}
+main{padding-top:55px}
+.section-title{display:flex;justify-content:space-between;
+ align-items:end;gap:20px;margin-bottom:24px}
+.section-title h2{font-size:29px;letter-spacing:-.8px;margin:0}
+.section-title p{margin:5px 0 0;color:var(--muted)}
+.count{font-size:13px;color:var(--muted)}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:28px}
+.filter{border:1px solid var(--border);border-radius:30px;
+ padding:9px 18px;background:var(--card);color:var(--ink);
+ font-size:13px;font-weight:650}
+.filter.active{background:var(--blue);color:white;border-color:var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.tool-card{background:var(--card);border:1px solid var(--border);
+ border-radius:19px;padding:25px;box-shadow:var(--shadow);
+ transition:transform .2s,border-color .2s}
+.tool-card:hover{transform:translateY(-4px);border-color:#93c5fd}
+.tool-icon{display:grid;place-items:center;background:var(--soft);
+ width:51px;height:51px;border-radius:14px;font-size:25px}
+.tool-card h3{font-size:18px;margin:17px 0 7px}
+.tool-card p{color:var(--muted);font-size:14px;margin:0 0 19px;
+ min-height:45px}
+.open-tool{background:transparent;border:0;padding:0;
+ color:var(--blue);font-size:14px;font-weight:750}
+.empty{padding:35px;text-align:center;color:var(--muted)}
+.workspace{margin:65px 0;background:var(--card);
+ border:1px solid var(--border);border-radius:23px;
+ padding:clamp(20px,4vw,40px);box-shadow:var(--shadow)}
+.workspace-head{display:flex;align-items:center;gap:15px;
+ margin-bottom:25px}
+.workspace-head h2{margin:0;font-size:26px}
+.workspace-head p{margin:2px 0;color:var(--muted);font-size:14px}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.field{margin-bottom:15px}
+.field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
+.field input,.field select{width:100%;border:1px solid var(--border);
+ border-radius:11px;background:var(--bg);color:var(--ink);
+ padding:13px;font-size:16px}
+.primary{background:var(--blue);border:0;color:white;
+ border-radius:11px;padding:14px 22px;font-weight:750}
+.primary:hover{background:var(--blue2)}
+.full{width:100%}
+.result-panel{background:var(--soft);border-radius:17px;
+ padding:25px;display:flex;flex-direction:column;justify-content:center}
+.result-panel small{color:var(--muted);font-weight:650}
+.result-value{font-size:clamp(22px,3vw,33px);font-weight:850;
+ margin:12px 0;overflow-wrap:anywhere}
+.result-detail{color:var(--muted);font-size:14px;min-height:24px}
+.copy-btn{align-self:flex-start;margin-top:20px;border:1px solid var(--border);
+ background:var(--card);color:var(--ink);border-radius:9px;
+ padding:9px 15px;font-size:13px}
+.explanation{border-top:1px solid var(--border);
+ margin-top:30px;padding-top:25px}
+.explanation h3{margin:0 0 9px}
+.explanation p{color:var(--muted);margin:0 0 12px}
+.explanation ul{color:var(--muted);padding-left:20px}
+.feature-section{padding:20px 0 70px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature{background:var(--card);border:1px solid var(--border);
+ border-radius:17px;padding:25px}
+.feature strong{display:block;margin:12px 0 5px}
+.feature p{color:var(--muted);font-size:14px;margin:0}
+.guide{background:var(--card);border:1px solid var(--border);
+ border-radius:20px;padding:35px;margin-bottom:70px}
+.guide h2{margin-top:0}
+.guide p{color:var(--muted)}
+.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+footer{background:#101d35;color:white;padding:45px 0 25px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr;gap:35px}
+footer p{color:#b9c5d7;font-size:14px}
+footer a{color:#dbeafe}
+.footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+.footer-bottom{border-top:1px solid #334155;margin-top:35px;
+ padding-top:20px;color:#b9c5d7;font-size:12px}
+@media(max-width:850px){
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .calc-grid,.features,.guide-grid{grid-template-columns:1fr}
+}
+@media(max-width:580px){
+ .navlinks a{display:none}
+ .nav{min-height:66px}
+ .logo{font-size:19px}
+ .hero{padding:65px 12px}
+ .hero h1{letter-spacing:-1px}
+ .grid{grid-template-columns:1fr}
+ .section-title h2{font-size:24px}
+ .workspace{margin:45px 0}
+ .footer-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .tool-card{transition:none}
+}
+</style>
 </head>
 <body>
 
-<header>
-  <div class="logo">🧮 CalculaFácil</div>
-  <nav>
-    <a href="#calculadoras">Calculadoras</a>
-    <a href="#informacion">Información</a>
-    <a href="#contacto">Contacto</a>
+<header class="topbar">
+ <div class="container nav">
+  <a href="#" class="logo">
+   <span class="logo-icon">∑</span> CalculaFácil
+  </a>
+  <nav class="navlinks" aria-label="Principal">
+   <a href="#herramientas">Herramientas</a>
+   <a href="#guia">Guías</a>
+   <a href="#nosotros">Nosotros</a>
+   <button class="theme" id="themeBtn" type="button"
+    aria-label="Cambiar modo de color">🌙</button>
   </nav>
+ </div>
 </header>
 
 <section class="hero">
-  <h1>Calculadoras online gratuitas</h1>
-  <p>Resuelve tus cálculos diarios de forma rápida, sencilla y sin registrarte.</p>
+ <span class="pill">✦ HERRAMIENTAS 100% GRATUITAS</span>
+ <h1>Todos tus cálculos,<br><span>en un solo lugar.</span></h1>
+ <p>Calculadoras online rápidas, precisas y fáciles de usar.
+ Resuelve tus operaciones cotidianas sin registros ni instalaciones.</p>
+ <div class="searchbox">
+  <span aria-hidden="true">⌕</span>
+  <input id="search" type="search"
+   placeholder="Busca una calculadora..."
+   aria-label="Buscar calculadoras">
+ </div>
+ <div class="hero-note">12 herramientas disponibles · Gratis · Sin registro</div>
 </section>
 
 <main class="container">
-  <section id="calculadoras">
-    <h2>Nuestras calculadoras</h2>
-    <div class="grid">
+ <section id="herramientas">
+  <div class="section-title">
+   <div>
+    <h2>Explora nuestras herramientas</h2>
+    <p>Selecciona una calculadora y obtén tu resultado.</p>
+   </div>
+   <span class="count" id="count"></span>
+  </div>
+  <div class="filters" id="filters" aria-label="Filtrar herramientas"></div>
+  <div class="grid" id="tools"></div>
+  <p id="empty" class="empty" hidden>
+   No encontramos herramientas con ese nombre.
+  </p>
+ </section>
 
-      <article class="card">
-        <h2>📊 Porcentajes</h2>
-        <p>Calcula qué porcentaje representa una cantidad.</p>
-        <label for="p1">Cantidad</label>
-        <input type="number" id="p1" placeholder="Ejemplo: 20" step="any">
-        <label for="p2">Total</label>
-        <input type="number" id="p2" placeholder="Ejemplo: 200" step="any">
-        <button onclick="porcentaje()">Calcular</button>
-        <div class="resultado" id="rp" aria-live="polite">Introduce los datos.</div>
-      </article>
-
-      <article class="card">
-        <h2>🏷️ Descuentos</h2>
-        <p>Descubre el precio final después de aplicar un descuento.</p>
-        <label for="d1">Precio original (€)</label>
-        <input type="number" id="d1" placeholder="Ejemplo: 100" step="any">
-        <label for="d2">Descuento (%)</label>
-        <input type="number" id="d2" placeholder="Ejemplo: 20" step="any">
-        <button onclick="descuento()">Calcular</button>
-        <div class="resultado" id="rd" aria-live="polite">Introduce los datos.</div>
-      </article>
-
-      <article class="card">
-        <h2>🔢 Regla de tres</h2>
-        <p>Si A corresponde a B, calcula cuánto corresponde a C.</p>
-        <label for="r1">Valor A</label>
-        <input type="number" id="r1" placeholder="Ejemplo: 2" step="any">
-        <label for="r2">Valor B</label>
-        <input type="number" id="r2" placeholder="Ejemplo: 10" step="any">
-        <label for="r3">Valor C</label>
-        <input type="number" id="r3" placeholder="Ejemplo: 5" step="any">
-        <button onclick="reglaTres()">Calcular</button>
-        <div class="resultado" id="rr" aria-live="polite">Introduce los datos.</div>
-      </article>
-
-      <article class="card">
-        <h2>🧾 Calculadora de IVA</h2>
-        <p>Añade IVA a un precio sin impuestos.</p>
-        <label for="i1">Precio sin IVA (€)</label>
-        <input type="number" id="i1" placeholder="Ejemplo: 100" step="any">
-        <label for="i2">Tipo de IVA</label>
-        <select id="i2">
-          <option value="21">21%</option>
-          <option value="10">10%</option>
-          <option value="4">4%</option>
-          <option value="0">0%</option>
-        </select>
-        <button onclick="iva()">Calcular</button>
-        <div class="resultado" id="ri" aria-live="polite">Introduce los datos.</div>
-      </article>
-
-      <article class="card">
-        <h2>💰 Interés compuesto</h2>
-        <p>Estima el crecimiento de un capital con interés anual compuesto.</p>
-        <label for="c1">Capital inicial (€)</label>
-        <input type="number" id="c1" placeholder="Ejemplo: 1000" step="any">
-        <label for="c2">Interés anual (%)</label>
-        <input type="number" id="c2" placeholder="Ejemplo: 5" step="any">
-        <label for="c3">Número de años</label>
-        <input type="number" id="c3" placeholder="Ejemplo: 10" step="1">
-        <button onclick="interes()">Calcular</button>
-        <div class="resultado" id="rc" aria-live="polite">Introduce los datos.</div>
-      </article>
-
+ <section class="workspace" id="calculadora" aria-label="Calculadora activa">
+  <div class="workspace-head">
+   <div class="tool-icon" id="activeIcon">📊</div>
+   <div>
+    <h2 id="activeTitle">Porcentajes</h2>
+    <p id="activeSubtitle">Introduce los datos para calcular.</p>
+   </div>
+  </div>
+  <div class="calc-grid">
+   <form id="calcForm">
+    <div id="fields"></div>
+    <button class="primary full" type="submit">Calcular resultado →</button>
+   </form>
+   <div class="result-panel" aria-live="polite">
+    <small>RESULTADO</small>
+    <div class="result-value" id="result">—</div>
+    <div class="result-detail" id="detail">
+     Introduce los valores y pulsa Calcular.
     </div>
-  </section>
+    <button type="button" class="copy-btn" id="copyBtn">
+     📋 Copiar resultado
+    </button>
+   </div>
+  </div>
+  <div class="explanation" id="explanation"></div>
+ </section>
 
-  <section class="info" id="informacion">
-    <h2>¿Qué es CalculaFácil?</h2>
-    <p>CalculaFácil es una página de herramientas gratuitas para realizar operaciones matemáticas habituales sin instalar programas.</p>
+ <section class="feature-section" id="nosotros">
+  <div class="section-title">
+   <div>
+    <h2>¿Por qué CalculaFácil?</h2>
+    <p>Herramientas diseñadas para simplificar tu día.</p>
+   </div>
+  </div>
+  <div class="features">
+   <div class="feature">
+    <div class="tool-icon">⚡</div>
+    <strong>Resultados instantáneos</strong>
+    <p>Obtén respuestas sin instalar aplicaciones ni crear cuentas.</p>
+   </div>
+   <div class="feature">
+    <div class="tool-icon">🔒</div>
+    <strong>Cálculos en tu navegador</strong>
+    <p>Los valores introducidos se procesan localmente en tu dispositivo.</p>
+   </div>
+   <div class="feature">
+    <div class="tool-icon">📱</div>
+    <strong>Desde cualquier dispositivo</strong>
+    <p>Diseño adaptado a ordenadores, tabletas y teléfonos móviles.</p>
+   </div>
+  </div>
+ </section>
 
-    <h3>¿Cómo utilizar las calculadoras?</h3>
-    <p>Selecciona la herramienta que necesites, introduce los valores y pulsa el botón Calcular. El resultado aparecerá inmediatamente.</p>
-
-    <h3>Ejemplo de cálculo de descuentos</h3>
-    <p>Si un producto cuesta 80 € y tiene un descuento del 25%, el descuento es de 20 € y el precio final es de 60 €.</p>
-
-    <h3>¿Son gratuitos los cálculos?</h3>
-    <p>Sí. Las herramientas son gratuitas y no requieren registro.</p>
-  </section>
-
-  <section class="info" id="contacto">
-    <h2>Contacto</h2>
-    <p>Esta sección está pendiente de completar con un medio de contacto real antes de publicar definitivamente la web.</p>
-  </section>
+ <section class="guide" id="guia">
+  <h2>Aprende a calcular paso a paso</h2>
+  <div class="guide-grid">
+   <article>
+    <h3>¿Cómo calcular un porcentaje?</h3>
+    <p>Para saber qué porcentaje representa una cantidad
+    respecto a un total, divide la cantidad entre el total
+    y multiplica por 100.</p>
+    <p><strong>Ejemplo:</strong> 30 de 150 es
+    (30 ÷ 150) × 100 = 20%.</p>
+   </article>
+   <article>
+    <h3>¿Cómo calcular un descuento?</h3>
+    <p>Multiplica el precio original por el porcentaje
+    de descuento dividido entre 100. Después resta
+    ese importe al precio inicial.</p>
+    <p><strong>Ejemplo:</strong> 80 € con un descuento
+    del 25% se convierte en 60 €.</p>
+   </article>
+   <article>
+    <h3>¿Qué es el interés compuesto?</h3>
+    <p>Es el crecimiento de un capital cuando los intereses
+    obtenidos se incorporan al capital y también generan
+    intereses en los siguientes periodos.</p>
+    <p>La fórmula anual es C × (1 + r/100)^n,
+    donde C es el capital, r la tasa y n los años.</p>
+   </article>
+   <article>
+    <h3>¿Cómo funciona la regla de tres?</h3>
+    <p>Permite calcular un valor desconocido a partir
+    de dos magnitudes directamente proporcionales.</p>
+    <p><strong>Ejemplo:</strong> si 2 kg cuestan 10 €,
+    entonces 5 kg cuestan (10 × 5) ÷ 2 = 25 €.</p>
+   </article>
+  </div>
+ </section>
 </main>
 
 <footer>
-  <p>© <span id="anio"></span> CalculaFácil</p>
-  <p>Herramientas gratuitas para tus cálculos diarios.</p>
+ <div class="container">
+  <div class="footer-grid">
+   <div>
+    <h2>∑ CalculaFácil</h2>
+    <p>Herramientas gratuitas para simplificar tus
+    cálculos cotidianos. Diseñadas para ser accesibles,
+    rápidas y fáciles de utilizar.</p>
+   </div>
+   <div class="footer-links">
+    <strong>Explorar</strong>
+    <a href="#herramientas">Calculadoras</a>
+    <a href="#guia">Guías y ejemplos</a>
+    <a href="#nosotros">Sobre CalculaFácil</a>
+   </div>
+  </div>
+  <div class="footer-bottom">
+   © <span id="year"></span> CalculaFácil.
+   Los resultados son orientativos; comprueba los datos
+   importantes antes de tomar decisiones.
+  </div>
+ </div>
 </footer>
 
 <script>
-  const valor = id => {
-    const campo = document.getElementById(id);
-    if (campo.value.trim() === "") return NaN;
-    return Number(campo.value);
-  };
+"use strict";
 
-  const mostrar = (id, texto) => {
-    document.getElementById(id).textContent = texto;
-  };
+const $ = id => document.getElementById(id);
+const fmt = n => new Intl.NumberFormat("es-ES",{
+ maximumFractionDigits:6
+}).format(n);
+const money = n => new Intl.NumberFormat("es-ES",{
+ style:"currency",currency:"EUR"
+}).format(n);
+const valid = (...v) => v.every(Number.isFinite);
 
-  const numero = n => n.toLocaleString("es-ES", {
-    maximumFractionDigits: 2
+const N = (id,label,placeholder,extra={}) => ({
+ id,label,placeholder,type:"number",...extra
+});
+const D = (id,label) => ({id,label,type:"date"});
+const S = (id,label,options) => ({
+ id,label,type:"select",options
+});
+
+const tools = [
+ {
+ id:"porcentaje",icon:"📊",name:"Porcentajes",cat:"Matemáticas",
+ desc:"Descubre qué porcentaje representa una cantidad.",
+ fields:[N("a","Cantidad","30"),N("b","Total","150")],
+ calc:v=>{
+  if(v.b===0)throw Error("El total no puede ser cero.");
+  return [fmt(v.a/v.b*100)+"%",
+   `${fmt(v.a)} representa ese porcentaje de ${fmt(v.b)}.`];
+ },
+ help:"Divide la cantidad entre el total y multiplica por 100.",
+ example:"30 de 150 = (30 / 150) × 100 = 20%."
+ },
+ {
+ id:"descuento",icon:"🏷️",name:"Descuentos",cat:"Compras",
+ desc:"Calcula el precio final de una oferta.",
+ fields:[N("a","Precio original (€)","100"),
+ N("b","Descuento (%)","20")],
+ calc:v=>{
+  if(v.a<0||v.b<0||v.b>100)
+   throw Error("Precio positivo y descuento entre 0 y 100%.");
+  const ahorro=v.a*v.b/100;
+  return [money(v.a-ahorro),`Ahorras ${money(ahorro)}.`];
+ },
+ help:"Resta al precio original el porcentaje de descuento.",
+ example:"100 € con 20% de descuento = 80 €."
+ },
+ {
+ id:"iva",icon:"🧾",name:"Calculadora de IVA",cat:"Finanzas",
+ desc:"Añade el IVA a un importe sin impuestos.",
+ fields:[N("a","Precio sin IVA (€)","100"),
+ S("b","Tipo de IVA",[["21","21%"],["10","10%"],
+ ["4","4%"],["0","0%"]])],
+ calc:v=>{
+  if(v.a<0)throw Error("El precio no puede ser negativo.");
+  return [money(v.a*(1+v.b/100)),
+   `IVA añadido: ${money(v.a*v.b/100)}.`];
+ },
+ help:"Multiplica la base por (1 + tipo de IVA / 100). Los tipos mostrados son opciones habituales en España; verifica cuál corresponde a tu operación.",
+ example:"100 € + 21% de IVA = 121 €."
+ },
+ {
+ id:"regla",icon:"🔢",name:"Regla de tres",cat:"Matemáticas",
+ desc:"Resuelve proporciones directas rápidamente.",
+ fields:[N("a","Valor A","2"),N("b","Valor B","10"),
+ N("c","Valor C","5")],
+ calc:v=>{
+  if(v.a===0)throw Error("El valor A no puede ser cero.");
+  return [fmt(v.b*v.c/v.a),"Resultado de la proporción directa."];
+ },
+ help:"Si A corresponde a B y C corresponde a X, entonces X = B × C / A.",
+ example:"Si 2 unidades cuestan 10 €, 5 cuestan 25 €."
+ },
+ {
+ id:"interes",icon:"📈",name:"Interés compuesto",cat:"Finanzas",
+ desc:"Simula el crecimiento anual de un capital.",
+ fields:[N("a","Capital inicial (€)","1000"),
+ N("b","Interés anual (%)","5"),
+ N("c","Años","10",{step:"1"})],
+ calc:v=>{
+  if(v.a<0||v.b< -100||v.c<0||
+     !Number.isInteger(v.c)||v.c>100)
+   throw Error("Revisa el capital, la tasa y los años (0 a 100).");
+  const total=v.a*Math.pow(1+v.b/100,v.c);
+  return [money(total),`Ganancia estimada: ${money(total-v.a)}.`];
+ },
+ help:"Se calcula con capital × (1 + tasa/100) elevado a los años. Supone tasa constante, capitalización anual y ausencia de aportaciones, comisiones e impuestos.",
+ example:"1.000 € al 5% durante 10 años ≈ 1.628,89 €."
+ },
+ {
+ id:"edad",icon:"🎂",name:"Calculadora de edad",cat:"Fechas",
+ desc:"Calcula años cumplidos a partir de tu nacimiento.",
+ fields:[D("a","Fecha de nacimiento"),
+ D("b","Fecha de referencia")],
+ calc:v=>{
+  const a=parseDate(v.a),b=parseDate(v.b);
+  if(a>b)throw Error("El nacimiento debe ser anterior a la fecha de referencia.");
+  let years=b.getUTCFullYear()-a.getUTCFullYear();
+  if(b.getUTCMonth()<a.getUTCMonth()||
+    (b.getUTCMonth()===a.getUTCMonth()&&
+     b.getUTCDate()<a.getUTCDate()))years--;
+  return [years+" años","Edad en años completos."];
+ },
+ help:"La edad se calcula restando los años y comprobando si ya se ha cumplido el aniversario.",
+ example:"La edad depende de la fecha de referencia seleccionada."
+ },
+ {
+ id:"imc",icon:"⚖️",name:"Índice de masa corporal",cat:"Salud",
+ desc:"Calcula el IMC a partir de peso y altura.",
+ fields:[N("a","Peso (kg)","70"),
+ N("b","Altura (cm)","175")],
+ calc:v=>{
+  if(v.a<=0||v.b<=0)throw Error("Introduce peso y altura positivos.");
+  const imc=v.a/Math.pow(v.b/100,2);
+  return [fmt(imc),"Indicador orientativo, no diagnóstico médico."];
+ },
+ help:"IMC = peso en kilogramos dividido entre altura en metros al cuadrado. No refleja por sí solo la composición corporal y puede no ser adecuado para todas las personas.",
+ example:"70 kg y 175 cm dan un IMC aproximado de 22,86."
+ },
+ {
+ id:"propina",icon:"☕",name:"Calculadora de propinas",cat:"Compras",
+ desc:"Divide una cuenta incluyendo la propina.",
+ fields:[N("a","Importe de la cuenta (€)","60"),
+ N("b","Propina (%)","10"),
+ N("c","Número de personas","3",{step:"1"})],
+ calc:v=>{
+  if(v.a<0||v.b<0||v.c<1||!Number.isInteger(v.c))
+   throw Error("Comprueba el importe, la propina y las personas.");
+  const total=v.a*(1+v.b/100);
+  return [money(total/v.c)+" / persona",
+   `Total con propina: ${money(total)}.`];
+ },
+ help:"Suma la propina al importe y divide el total entre las personas.",
+ example:"60 € + 10% entre 3 personas = 22 € por persona."
+ },
+ {
+ id:"longitud",icon:"📏",name:"Conversor de longitud",cat:"Conversores",
+ desc:"Convierte metros, kilómetros, millas y más.",
+ fields:[N("a","Cantidad","10"),
+ S("b","Desde",[["m","Metros"],["km","Kilómetros"],
+ ["cm","Centímetros"],["mi","Millas"],["ft","Pies"]]),
+ S("c","Hasta",[["km","Kilómetros"],["m","Metros"],
+ ["cm","Centímetros"],["mi","Millas"],["ft","Pies"]])],
+ calc:v=>{
+  const factors={m:1,km:1000,cm:.01,mi:1609.344,ft:.3048};
+  const result=v.a*factors[v.b]/factors[v.c];
+  return [fmt(result)+" "+v.c,"Conversión mediante factores estándar."];
+ },
+ help:"Cada unidad se transforma primero a metros y después a la unidad de destino.",
+ example:"1 kilómetro = 1.000 metros."
+ },
+ {
+ id:"temperatura",icon:"🌡️",name:"Conversor de temperatura",cat:"Conversores",
+ desc:"Convierte grados Celsius, Fahrenheit y Kelvin.",
+ fields:[N("a","Temperatura","25"),
+ S("b","Desde",[["C","Celsius"],["F","Fahrenheit"],
+ ["K","Kelvin"]]),
+ S("c","Hasta",[["F","Fahrenheit"],["C","Celsius"],
+ ["K","Kelvin"]])],
+ calc:v=>{
+  let k=v.b==="C"?v.a+273.15:
+    v.b==="F"?(v.a-32)*5/9+273.15:v.a;
+  if(k<0)throw Error("La temperatura no puede estar bajo el cero absoluto.");
+  let out=v.c==="C"?k-273.15:
+    v.c==="F"?(k-273.15)*9/5+32:k;
+  return [fmt(out)+" °".replace(" °"," ")+
+    (v.c==="K"?"K":"°"+v.c),
+    "Conversión de temperatura realizada."];
+ },
+ help:"Las conversiones utilizan Kelvin como escala intermedia.",
+ example:"0 °C equivalen a 32 °F y 273,15 K."
+ },
+ {
+ id:"dias",icon:"📅",name:"Días entre fechas",cat:"Fechas",
+ desc:"Cuenta los días entre dos fechas del calendario.",
+ fields:[D("a","Fecha inicial"),D("b","Fecha final")],
+ calc:v=>{
+  const a=parseDate(v.a),b=parseDate(v.b);
+  const days=Math.round((b-a)/86400000);
+  return [fmt(Math.abs(days))+" días",
+   days<0?"La fecha final es anterior a la inicial.":
+   "Diferencia sin contar ambos extremos de forma inclusiva."];
+ },
+ help:"Se calcula la diferencia entre las fechas del calendario usando días completos.",
+ example:"Del 1 al 11 de enero transcurren 10 días."
+ },
+ {
+ id:"unidad",icon:"🛒",name:"Precio por unidad",cat:"Compras",
+ desc:"Compara el coste de productos por cantidad.",
+ fields:[N("a","Precio total (€)","8"),
+ N("b","Cantidad de unidades","4")],
+ calc:v=>{
+  if(v.a<0||v.b<=0)
+   throw Error("El precio debe ser positivo o cero y la cantidad mayor que cero.");
+  return [money(v.a/v.b)+" / unidad",
+   "Útil para comparar productos de distintos tamaños."];
+ },
+ help:"Divide el precio total entre la cantidad de unidades.",
+ example:"8 € por 4 unidades = 2 € por unidad."
+ }
+];
+
+function parseDate(s){
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(s))
+  throw Error("Introduce una fecha válida.");
+ const [y,m,d]=s.split("-").map(Number);
+ const date=new Date(0);
+ date.setUTCHours(0,0,0,0);
+ date.setUTCFullYear(y,m-1,d);
+ if(date.getUTCFullYear()!==y||
+    date.getUTCMonth()!==m-1||
+    date.getUTCDate()!==d)
+  throw Error("La fecha no es válida.");
+ return date;
+}
+
+let active=tools[0];
+let category="Todas";
+
+function renderFilters(){
+ const categories=["Todas",...new Set(tools.map(t=>t.cat))];
+ $("filters").replaceChildren();
+ categories.forEach(cat=>{
+  const btn=document.createElement("button");
+  btn.type="button";
+  btn.className="filter"+(cat===category?" active":"");
+  btn.textContent=cat;
+  btn.setAttribute("aria-pressed",cat===category);
+  btn.addEventListener("click",()=>{
+   category=cat;renderFilters();renderTools();
   });
+  $("filters").append(btn);
+ });
+}
 
-  const euros = n => n.toLocaleString("es-ES", {
-    style: "currency",
-    currency: "EUR"
-  });
+function renderTools(){
+ const q=$("search").value.toLocaleLowerCase("es").trim();
+ const matches=tools.filter(t=>
+  (category==="Todas"||t.cat===category)&&
+  (t.name+" "+t.desc+" "+t.cat)
+    .toLocaleLowerCase("es").includes(q)
+ );
+ $("tools").replaceChildren();
+ $("count").textContent=matches.length+" herramientas";
+ $("empty").hidden=matches.length!==0;
 
-  function porcentaje() {
-    const a = valor("p1"), b = valor("p2");
-    mostrar("rp", !Number.isFinite(a) || !Number.isFinite(b) || b === 0
-      ? "Introduce valores válidos. El total no puede ser cero."
-      : "Resultado: " + numero(a / b * 100) + "%");
+ matches.forEach(t=>{
+  const card=document.createElement("article");
+  card.className="tool-card";
+  const icon=document.createElement("div");
+  icon.className="tool-icon";icon.textContent=t.icon;
+  const h=document.createElement("h3");h.textContent=t.name;
+  const p=document.createElement("p");p.textContent=t.desc;
+  const btn=document.createElement("button");
+  btn.type="button";btn.className="open-tool";
+  btn.textContent="Abrir calculadora →";
+  btn.addEventListener("click",()=>openTool(t));
+  card.append(icon,h,p,btn);
+  $("tools").append(card);
+ });
+}
+
+function openTool(t){
+ active=t;
+ $("activeIcon").textContent=t.icon;
+ $("activeTitle").textContent=t.name;
+ $("activeSubtitle").textContent=t.desc;
+ $("fields").replaceChildren();
+
+ t.fields.forEach(f=>{
+  const wrap=document.createElement("div");
+  wrap.className="field";
+  const label=document.createElement("label");
+  label.htmlFor="field-"+f.id;
+  label.textContent=f.label;
+  let input;
+
+  if(f.type==="select"){
+   input=document.createElement("select");
+   f.options.forEach(([value,text])=>{
+    const opt=document.createElement("option");
+    opt.value=value;opt.textContent=text;
+    input.append(opt);
+   });
+  }else{
+   input=document.createElement("input");
+   input.type=f.type;
+   input.required=true;
+   if(f.type==="number"){
+    input.step=f.step||"any";
+    input.placeholder=f.placeholder||"";
+   }
   }
+  input.id="field-"+f.id;
+  wrap.append(label,input);
+  $("fields").append(wrap);
+ });
 
-  function descuento() {
-    const precio = valor("d1"), d = valor("d2");
-    mostrar("rd", !Number.isFinite(precio) || !Number.isFinite(d)
-      || precio < 0 || d < 0 || d > 100
-      ? "Introduce un precio válido y un descuento entre 0 y 100%."
-      : "Precio final: " + euros(precio * (1 - d / 100)));
+ if(t.id==="edad"){
+  const today=new Date();
+  const local=new Date(today.getTime()-
+    today.getTimezoneOffset()*60000);
+  $("field-b").value=local.toISOString().slice(0,10);
+ }
+
+ $("result").textContent="—";
+ $("detail").textContent="Introduce los valores y pulsa Calcular.";
+ $("explanation").replaceChildren();
+
+ const h=document.createElement("h3");
+ h.textContent="¿Cómo funciona?";
+ const p=document.createElement("p");
+ p.textContent=t.help;
+ const example=document.createElement("p");
+ const strong=document.createElement("strong");
+ strong.textContent="Ejemplo: ";
+ example.append(strong,document.createTextNode(t.example));
+ $("explanation").append(h,p,example);
+ $("calculadora").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+$("calcForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ try{
+  const v={};
+  for(const f of active.fields){
+   const input=$("field-"+f.id);
+   if(input.value==="")
+    throw Error("Completa todos los campos.");
+   v[f.id]=f.type==="date"?input.value:Number(input.value);
+   if(f.type!=="date"&&!Number.isFinite(v[f.id]))
+    throw Error("Introduce números válidos.");
   }
+  const [result,detail]=active.calc(v);
+  if(!result||result.includes("Infinity")||result.includes("NaN"))
+   throw Error("No se puede representar el resultado.");
+  $("result").textContent=result;
+  $("detail").textContent=detail;
+ }catch(err){
+  $("result").textContent="Revisa los datos";
+  $("detail").textContent=err.message;
+ }
+});
 
-  function reglaTres() {
-    const a = valor("r1"), b = valor("r2"), c = valor("r3");
-    mostrar("rr", ![a,b,c].every(Number.isFinite) || a === 0
-      ? "Introduce valores válidos. A no puede ser cero."
-      : "Resultado: " + numero(b * c / a));
-  }
+$("copyBtn").addEventListener("click",async()=>{
+ const text=$("result").textContent;
+ if(text==="—"||text==="Revisa los datos")return;
+ try{
+  await navigator.clipboard.writeText(text);
+  $("copyBtn").textContent="✓ Copiado";
+  setTimeout(()=>$("copyBtn").textContent="📋 Copiar resultado",1800);
+ }catch{
+  $("copyBtn").textContent="Selecciona el resultado para copiarlo";
+ }
+});
 
-  function iva() {
-    const precio = valor("i1"), tipo = valor("i2");
-    mostrar("ri", !Number.isFinite(precio) || precio < 0
-      ? "Introduce un precio válido."
-      : "Precio con IVA: " + euros(precio * (1 + tipo / 100)));
-  }
+$("search").addEventListener("input",renderTools);
 
-  function interes() {
-    const capital = valor("c1");
-    const tasa = valor("c2");
-    const anios = valor("c3");
-    if (![capital,tasa,anios].every(Number.isFinite)
-        || capital < 0 || tasa < -100
-        || !Number.isInteger(anios) || anios < 0 || anios > 100) {
-      mostrar("rc", "Introduce valores válidos y años entre 0 y 100.");
-      return;
-    }
-    const resultado = capital * Math.pow(1 + tasa / 100, anios);
-    mostrar("rc", Number.isFinite(resultado)
-      ? "Capital final estimado: " + euros(resultado)
-      : "El resultado supera el límite de cálculo.");
-  }
+$("themeBtn").addEventListener("click",()=>{
+ document.body.classList.toggle("dark");
+ const dark=document.body.classList.contains("dark");
+ $("themeBtn").textContent=dark?"☀️":"🌙";
+ $("themeBtn").setAttribute("aria-label",
+  dark?"Activar modo claro":"Activar modo oscuro");
+});
 
-  document.getElementById("anio").textContent =
-    new Date().getFullYear();
+$("year").textContent=new Date().getFullYear();
+renderFilters();
+renderTools();
+openTool(active);
 </script>
-
 </body>
 </html>

@@ -1,0 +1,55 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comparador de precio por unidad | CalculaFácil</title>
+<meta name="description" content="Compara dos productos y descubre cuál tiene menor precio por unidad.">
+<link rel="canonical" href="https://wgmt4cvrtg-lab.github.io/calculafacil/precio-unitario.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header"><div class="container nav">
+<a class="logo" href="index.html">✦ Calcula<span>Fácil</span></a>
+<button id="menu" class="secondary menu" aria-expanded="false" aria-controls="navlinks">☰ Menú</button>
+<nav id="navlinks" class="navlinks">
+<a href="index.html">Inicio</a><a href="index.html#herramientas">Calculadoras</a>
+<a href="sobre-nosotros.html">Sobre nosotros</a><a href="contacto.html">Contacto</a>
+<button id="theme" class="secondary" type="button">☾</button>
+</nav></div></header>
+<main class="container">
+<p class="crumb"><a href="index.html">Inicio</a> / Precio por unidad</p>
+<section class="section article">
+<h1>Comparador de precio por unidad</h1>
+<p class="lead">Compara dos productos para saber cuál resulta más económico por unidad de medida.</p>
+<div class="panel">
+<form id="calculator" data-tool="precio-unitario">
+<h2>Producto A</h2>
+<div class="formgrid">
+<div class="field"><label for="a">Precio A (€)</label><input id="a" type="number" min="0" step="any" value="3.60" required></div>
+<div class="field"><label for="b">Cantidad A</label><input id="b" type="number" min="0.000001" step="any" value="600" required></div>
+</div>
+<h2>Producto B</h2>
+<div class="formgrid">
+<div class="field"><label for="c">Precio B (€)</label><input id="c" type="number" min="0" step="any" value="4.50" required></div>
+<div class="field"><label for="d">Cantidad B</label><input id="d" type="number" min="0.000001" step="any" value="750" required></div>
+</div>
+<p class="note">Usa la misma unidad para ambas cantidades: por ejemplo, gramos en ambos productos o mililitros en ambos.</p>
+<button type="submit">Comparar productos</button>
+</form>
+<div id="result" class="result" role="status" aria-live="polite">Introduce los datos y pulsa Comparar.</div>
+</div>
+<h2>Cómo comparar precios por unidad</h2>
+<p>Divide el precio de cada producto entre su cantidad. El producto con el resultado más bajo tiene menor coste por unidad.</p>
+<h2>Ejemplo</h2>
+<p>Un envase de 600 g que cuesta 3,60 € tiene un precio de 0,006 € por gramo. Otro de 750 g que cuesta 4,50 € también cuesta 0,006 € por gramo. Ambos tienen el mismo precio unitario.</p>
+<h2>Preguntas frecuentes</h2>
+<h3>¿Puedo comparar gramos con kilogramos?</h3>
+<p>Primero debes convertir ambas cantidades a la misma unidad. Por ejemplo, 1 kg equivale a 1.000 g.</p>
+<p><a href="descuentos.html">Calculadora de descuentos →</a></p>
+</section></main>
+<footer class="footer"><div class="container"><strong>CalculaFácil</strong><div class="footerlinks"><a href="index.html">Inicio</a><a href="privacidad.html">Privacidad</a><a href="contacto.html">Contacto</a></div></div></footer>
+<script src="app.js" defer></script>
+</body>
+</html>

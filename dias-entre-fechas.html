@@ -1,0 +1,50 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de días entre dos fechas | CalculaFácil</title>
+<meta name="description" content="Calcula cuántos días separan dos fechas, teniendo en cuenta los años bisiestos.">
+<link rel="canonical" href="https://wgmt4cvrtg-lab.github.io/calculafacil/dias-entre-fechas.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header"><div class="container nav">
+<a class="logo" href="index.html">✦ Calcula<span>Fácil</span></a>
+<button id="menu" class="secondary menu" aria-expanded="false" aria-controls="navlinks">☰ Menú</button>
+<nav id="navlinks" class="navlinks">
+<a href="index.html">Inicio</a><a href="index.html#herramientas">Calculadoras</a>
+<a href="sobre-nosotros.html">Sobre nosotros</a><a href="contacto.html">Contacto</a>
+<button id="theme" class="secondary" type="button">☾</button>
+</nav></div></header>
+<main class="container">
+<p class="crumb"><a href="index.html">Inicio</a> / Días entre fechas</p>
+<section class="section article">
+<h1>Calculadora de días entre fechas</h1>
+<p class="lead">Descubre cuántos días separan dos fechas del calendario.</p>
+<div class="panel">
+<form id="calculator" data-tool="dias-entre-fechas">
+<div class="formgrid">
+<div class="field"><label for="start">Fecha inicial</label><input id="start" type="date" required></div>
+<div class="field"><label for="end">Fecha final</label><input id="end" type="date" required></div>
+</div>
+<button type="submit">Calcular días</button>
+</form>
+<div id="result" class="result" role="status" aria-live="polite">Selecciona las fechas y pulsa Calcular.</div>
+</div>
+<h2>¿Cómo se cuentan los días entre fechas?</h2>
+<p>Se calcula la diferencia entre dos fechas del calendario. La operación tiene en cuenta la duración real de los meses y los años bisiestos.</p>
+<h2>Ejemplo</h2>
+<p>Del 1 al 11 de enero transcurren 10 días. Si necesitas contar ambos días extremos como días incluidos, debes sumar uno al resultado.</p>
+<h2>Preguntas frecuentes</h2>
+<h3>¿Cuenta los fines de semana?</h3>
+<p>Sí. Esta calculadora cuenta días naturales, incluidos sábados, domingos y festivos.</p>
+<h3>¿Qué pasa si la fecha final es anterior?</h3>
+<p>Se muestra la diferencia absoluta en días y se indica que las fechas están invertidas.</p>
+<p><a href="edad.html">Calculadora de edad →</a></p>
+</section></main>
+<footer class="footer"><div class="container"><strong>CalculaFácil</strong><div class="footerlinks"><a href="index.html">Inicio</a><a href="privacidad.html">Privacidad</a><a href="contacto.html">Contacto</a></div></div></footer>
+<script src="app.js" defer></script>
+</body>
+</html>

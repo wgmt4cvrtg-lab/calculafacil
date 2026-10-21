@@ -1,0 +1,48 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de IMC para adultos | CalculaFácil</title>
+<meta name="description" content="Calcula tu índice de masa corporal con peso y altura. Resultado orientativo para adultos.">
+<link rel="canonical" href="https://wgmt4cvrtg-lab.github.io/calculafacil/imc.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header"><div class="container nav">
+<a class="logo" href="index.html">✦ Calcula<span>Fácil</span></a>
+<button id="menu" class="secondary menu" aria-expanded="false" aria-controls="navlinks">☰ Menú</button>
+<nav id="navlinks" class="navlinks">
+<a href="index.html">Inicio</a><a href="index.html#herramientas">Calculadoras</a>
+<a href="sobre-nosotros.html">Sobre nosotros</a><a href="contacto.html">Contacto</a>
+<button id="theme" class="secondary" type="button">☾</button>
+</nav></div></header>
+<main class="container">
+<p class="crumb"><a href="index.html">Inicio</a> / IMC</p>
+<section class="section article">
+<h1>Calculadora de índice de masa corporal (IMC)</h1>
+<p class="lead">Obtén una referencia orientativa de la relación entre tu peso y altura.</p>
+<div class="panel">
+<form id="calculator" data-tool="imc">
+<div class="formgrid">
+<div class="field"><label for="a">Peso (kg)</label><input id="a" type="number" min="0.1" step="any" value="70" required></div>
+<div class="field"><label for="b">Altura (cm)</label><input id="b" type="number" min="0.1" step="any" value="175" required></div>
+</div>
+<button type="submit">Calcular IMC</button>
+</form>
+<div id="result" class="result" role="status" aria-live="polite">Introduce los datos y pulsa Calcular.</div>
+</div>
+<h2>Fórmula del IMC</h2>
+<p>El índice de masa corporal se calcula dividiendo el peso en kilogramos entre la altura en metros elevada al cuadrado.</p>
+<p><strong>IMC = peso (kg) ÷ altura (m)².</strong></p>
+<h2>Ejemplo</h2>
+<p>Para una persona de 70 kg y 1,75 m, el IMC es aproximadamente 22,86.</p>
+<h2>Limitaciones importantes</h2>
+<p>El IMC no distingue masa muscular y grasa corporal ni describe por sí solo el estado de salud. Los intervalos habituales para adultos no deben aplicarse directamente a niños, adolescentes o personas embarazadas. Consulta a un profesional sanitario para una valoración individual.</p>
+<p><a href="index.html#herramientas">Ver otras calculadoras →</a></p>
+</section></main>
+<footer class="footer"><div class="container"><strong>CalculaFácil</strong><div class="footerlinks"><a href="index.html">Inicio</a><a href="privacidad.html">Privacidad</a><a href="contacto.html">Contacto</a></div></div></footer>
+<script src="app.js" defer></script>
+</body>
+</html>

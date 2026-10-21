@@ -1,0 +1,48 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de edad exacta | CalculaFácil</title>
+<meta name="description" content="Calcula tu edad en años, meses y días a partir de la fecha de nacimiento.">
+<link rel="canonical" href="https://wgmt4cvrtg-lab.github.io/calculafacil/edad.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header"><div class="container nav">
+<a class="logo" href="index.html">✦ Calcula<span>Fácil</span></a>
+<button id="menu" class="secondary menu" aria-expanded="false" aria-controls="navlinks">☰ Menú</button>
+<nav id="navlinks" class="navlinks">
+<a href="index.html">Inicio</a><a href="index.html#herramientas">Calculadoras</a>
+<a href="sobre-nosotros.html">Sobre nosotros</a><a href="contacto.html">Contacto</a>
+<button id="theme" class="secondary" type="button">☾</button>
+</nav></div></header>
+<main class="container">
+<p class="crumb"><a href="index.html">Inicio</a> / Edad</p>
+<section class="section article">
+<h1>Calculadora de edad</h1>
+<p class="lead">Calcula cuánto tiempo ha pasado desde una fecha de nacimiento.</p>
+<div class="panel">
+<form id="calculator" data-tool="edad">
+<div class="formgrid">
+<div class="field"><label for="birth">Fecha de nacimiento</label><input id="birth" type="date" required></div>
+<div class="field"><label for="today">Fecha de cálculo</label><input id="today" type="date" required></div>
+</div>
+<button type="submit">Calcular edad</button>
+</form>
+<div id="result" class="result" role="status" aria-live="polite">Selecciona las fechas y pulsa Calcular.</div>
+</div>
+<h2>¿Cómo se calcula la edad?</h2>
+<p>Se comparan los años, meses y días de las dos fechas. No basta con restar los años: también hay que comprobar si ya ha pasado el cumpleaños.</p>
+<h2>Ejemplo</h2>
+<p>Una persona nacida el 15 de mayo de 2000 cumple 26 años el 15 de mayo de 2026.</p>
+<h2>Preguntas frecuentes</h2>
+<h3>¿La calculadora tiene en cuenta los años bisiestos?</h3>
+<p>Sí, para contar los días transcurridos se utilizan las fechas reales del calendario. La expresión en meses y días es orientativa en fechas especiales, como los días 29, 30 y 31.</p>
+<p><a href="dias-entre-fechas.html">Calcular días entre fechas →</a></p>
+</section></main>
+<footer class="footer"><div class="container"><strong>CalculaFácil</strong><div class="footerlinks"><a href="index.html">Inicio</a><a href="privacidad.html">Privacidad</a><a href="contacto.html">Contacto</a></div></div></footer>
+<script src="app.js" defer></script>
+</body>
+</html>

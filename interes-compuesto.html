@@ -1,0 +1,50 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de interés compuesto | CalculaFácil</title>
+<meta name="description" content="Simula el crecimiento de tus ahorros con interés compuesto y aportaciones mensuales.">
+<link rel="canonical" href="https://wgmt4cvrtg-lab.github.io/calculafacil/interes-compuesto.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header"><div class="container nav">
+<a class="logo" href="index.html">✦ Calcula<span>Fácil</span></a>
+<button id="menu" class="secondary menu" aria-expanded="false" aria-controls="navlinks">☰ Menú</button>
+<nav id="navlinks" class="navlinks">
+<a href="index.html">Inicio</a><a href="index.html#herramientas">Calculadoras</a>
+<a href="sobre-nosotros.html">Sobre nosotros</a><a href="contacto.html">Contacto</a>
+<button id="theme" class="secondary" type="button">☾</button>
+</nav></div></header>
+<main class="container">
+<p class="crumb"><a href="index.html">Inicio</a> / Interés compuesto</p>
+<section class="section article">
+<h1>Calculadora de interés compuesto</h1>
+<p class="lead">Estima cómo podría crecer un capital con una rentabilidad anual constante y aportaciones mensuales.</p>
+<div class="panel">
+<form id="calculator" data-tool="interes-compuesto">
+<div class="formgrid">
+<div class="field"><label for="a">Capital inicial (€)</label><input id="a" type="number" min="0" step="any" value="1000" required></div>
+<div class="field"><label for="b">Interés nominal anual (%)</label><input id="b" type="number" min="0" max="100" step="any" value="5" required></div>
+<div class="field"><label for="c">Años</label><input id="c" type="number" min="0" max="100" step="any" value="10" required></div>
+<div class="field"><label for="m">Aportación mensual (€)</label><input id="m" type="number" min="0" step="any" value="50" required></div>
+</div>
+<button type="submit">Simular ahorro</button>
+</form>
+<div id="result" class="result" role="status" aria-live="polite">Introduce los datos y pulsa Calcular.</div>
+</div>
+<h2>Cómo funciona el interés compuesto</h2>
+<p>Los intereses generados se incorporan al capital y pueden producir nuevos intereses. En esta simulación se aplica una tasa mensual equivalente a la tasa nominal anual dividida entre doce.</p>
+<p>Las aportaciones se añaden al final de cada mes. El número de meses se redondea al entero más cercano.</p>
+<h2>Ejemplo</h2>
+<p>Si empiezas con 1.000 €, aportas 50 € mensuales y utilizas un interés nominal anual del 5 %, el capital estimado crecerá durante diez años mediante la capitalización mensual.</p>
+<h2>Limitaciones</h2>
+<p>Esta calculadora supone una tasa fija y no contempla impuestos, comisiones, inflación ni pérdidas de inversión. Los resultados no son una promesa de rentabilidad.</p>
+<p><a href="porcentajes.html">Calculadora de porcentajes →</a></p>
+</section></main>
+<footer class="footer"><div class="container"><strong>CalculaFácil</strong><div class="footerlinks"><a href="index.html">Inicio</a><a href="privacidad.html">Privacidad</a><a href="contacto.html">Contacto</a></div></div></footer>
+<script src="app.js" defer></script>
+</body>
+</html>

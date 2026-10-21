@@ -1,0 +1,57 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conversor de longitud online | CalculaFácil</title>
+<meta name="description" content="Convierte metros, kilómetros, centímetros, millas y pies de forma gratuita.">
+<link rel="canonical" href="https://wgmt4cvrtg-lab.github.io/calculafacil/longitud.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header"><div class="container nav">
+<a class="logo" href="index.html">✦ Calcula<span>Fácil</span></a>
+<button id="menu" class="secondary menu" aria-expanded="false" aria-controls="navlinks">☰ Menú</button>
+<nav id="navlinks" class="navlinks">
+<a href="index.html">Inicio</a><a href="index.html#herramientas">Calculadoras</a>
+<a href="sobre-nosotros.html">Sobre nosotros</a><a href="contacto.html">Contacto</a>
+<button id="theme" class="secondary" type="button">☾</button>
+</nav></div></header>
+<main class="container">
+<p class="crumb"><a href="index.html">Inicio</a> / Longitud</p>
+<section class="section article">
+<h1>Conversor de unidades de longitud</h1>
+<p class="lead">Convierte distancias entre diferentes unidades del sistema métrico e imperial.</p>
+<div class="panel">
+<form id="calculator" data-tool="longitud">
+<div class="field"><label for="a">Cantidad</label><input id="a" type="number" step="any" value="1" required></div>
+<div class="formgrid">
+<div class="field"><label for="from">Convertir desde</label>
+<select id="from">
+<option value="m">Metros</option><option value="km">Kilómetros</option>
+<option value="cm">Centímetros</option><option value="mi">Millas</option><option value="ft">Pies</option>
+</select></div>
+<div class="field"><label for="to">Convertir a</label>
+<select id="to">
+<option value="km">Kilómetros</option><option value="m">Metros</option>
+<option value="cm">Centímetros</option><option value="mi">Millas</option><option value="ft">Pies</option>
+</select></div>
+</div>
+<button type="submit">Convertir longitud</button>
+</form>
+<div id="result" class="result" role="status" aria-live="polite">Introduce los datos y pulsa Convertir.</div>
+</div>
+<h2>Equivalencias habituales</h2>
+<p>Un kilómetro equivale a 1.000 metros. Un metro equivale a 100 centímetros. Una milla internacional equivale a 1.609,344 metros y un pie internacional equivale a 0,3048 metros.</p>
+<h2>Ejemplo</h2>
+<p>Una distancia de 5 kilómetros equivale a 5.000 metros.</p>
+<h2>Preguntas frecuentes</h2>
+<h3>¿Qué milla utiliza esta calculadora?</h3>
+<p>Utiliza la milla internacional, equivalente a 1.609,344 metros, no la milla náutica.</p>
+<p><a href="temperatura.html">Conversor de temperatura →</a></p>
+</section></main>
+<footer class="footer"><div class="container"><strong>CalculaFácil</strong><div class="footerlinks"><a href="index.html">Inicio</a><a href="privacidad.html">Privacidad</a><a href="contacto.html">Contacto</a></div></div></footer>
+<script src="app.js" defer></script>
+</body>
+</html>

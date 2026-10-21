@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://wgmt4cvrtg-lab.github.io/calculafacil/sitemap.xml
